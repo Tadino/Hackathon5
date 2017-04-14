@@ -1,3 +1,7 @@
 # Hackathon5
-daco
-zmena
+
+## Installing
+`npm install`
+
+## Db setup
+Config is in db/db.js
