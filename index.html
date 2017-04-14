@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        function send(){
+            
+            var name = document.getElementById("usr").value;
+            var pass = document.getElementById("pwd").value;
+            var email = document.getElementById("email").value;
+
+            document.getElementById('submitBtn').innerHTML = "Processing...";
+
+            axios.post('http://localhost:3000/post',{
+            name: name,
+            pass: pass,
+            email: email
+            })
+        
+            .then(function (response) {
+                
+                setTimeout(function() {
+                    document.getElementById('submitBtn').innerHTML = "Post";
+                //document.getElementById('submitBtn').disabled = false;
+                }, 700);
+                
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+            document.getElementById('usr').value = "";
+            document.getElementById('pwd').value = "";
+            document.getElementById('email').value = "";
+        };
+    </script>
+    <style>
+        #formm {
+            width: 500px;
+            margin: auto;
+            margin-top: 100px;
+            text-align: center;
+            /* sandro tu bol */
+            /*position: absolute;
+            height: 500px;
+            width: 500px;
+            margin-left: -250px;
+            margin-top: -250px;
+            left: 50%;
+            top:50%;*/
+        }
+        .form-control{
+            width: 30em;
+            margin: auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="jumbotron" id="formm">
+        <div class="form-group">
+            <label for="usr">Name:</label>
+            <input type="text" class="form-control" id="usr">
+        </div>
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd">
+        </div>
+        <div class="form-group">
+            <label for="pass">Email:</label>
+            <input type="email" class="form-control" id="email">
+        </div>
+        <button type="button" class="btn btn-primary" onclick="send()" id="submitBtn">Send</button>
+    </div>
+</body>
+</html>
