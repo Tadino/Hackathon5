@@ -17,7 +17,7 @@
 
             document.getElementById('submitBtn').innerHTML = "Processing...";
 
-            axios.post('http://localhost:3000/post',{
+            axios.post('http://localhost:3000/registration',{
             name: name,
             pass: pass,
             email: email
@@ -45,7 +45,7 @@
             width: 500px;
             margin: auto;
             margin-top: 100px;
-            text-align: center;
+            /*text-align: center;*/
             /* sandro tu bol */
             /*position: absolute;
             height: 500px;
@@ -54,16 +54,18 @@
             margin-top: -250px;
             left: 50%;
             top:50%;*/
+              box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            padding: 2em;
         }
         .form-control{
-            width: 30em;
-            margin: auto;
+            /*width: 30em;
+            margin: auto;*/
         }
         
     </style>
 </head>
 <body>
-    <div class="jumbotron" id="formm">
+    <div id="formm">
         <div class="form-group">
             <label for="usr">Name:</label>
             <input type="text" class="form-control" id="usr">
